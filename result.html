@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            background-image: url('left.svg');
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: black;
+            margin-bottom: 30px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .prediction {
+            background-color: #88e5fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .smiley {
+            display: block;
+            margin: 0 auto;
+            width: 400px;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Model Prediction</h2>
+        <div class="prediction" id="apiResponse"></div>
+        <img src="" alt="Smiley Image" id="smiley" class="smiley">
+    </div>
+
+    <script>
+        // Parse URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const apiResponse = JSON.parse(urlParams.get('apiResponse'));
+
+        // Display API response (Prediction)
+        document.getElementById('apiResponse').textContent = apiResponse;
+        
+        const smileyImg = document.getElementById('smiley');
+        if (apiResponse === 'The credit card rating is bad.') {
+            smileyImg.src = 'sad';
+            smileyImg.alt = 'Bad Smiley';
+        } else {
+            smileyImg.src = 'smile';
+            smileyImg.alt = 'Good Smiley';
+        }
+    </script>
+</body>
+</html>

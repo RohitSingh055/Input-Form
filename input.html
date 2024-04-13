@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Form</title>
+    <link rel="icon" href="/icon.png" type="image">
+    <style>
+        ::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #00aede;
+            border-radius: 6px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('/left.svg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        form {
+            background-color: #eaf4fd;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333333;
+            margin-bottom: 30px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .credit-card-image {
+            display: block;
+            margin: 0 auto 20px;
+            width: 200px;
+        }
+
+        .form-description {
+            text-align: center;
+            color: #666666;
+            margin-bottom: 50px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 18px;
+            color: #666666;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #008CBA;
+            box-shadow: 0 0 5px rgba(2, 129, 171, 0.5);
+        }
+
+        input[type="radio"] {
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #008CBA;
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #005f75;
+        }
+
+        .radio-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .radio-label {
+            margin-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="myForm" onsubmit="submitForm(event)" method="post">
+        <h1>Check your Credit Rating</h1>
+        <img class="credit-card-image" src="/credit-card.webp" alt="Credit Card Image">
+        <p class="form-description">Fill out the form below to check your credit rating based on the predictions done by Machine learning model trained on following parameters.</p>
+        <label for="chk_acct">Checking Account:</label>
+        <select name="chk_acct" id="chk_acct" required>
+            <option value="" disabled selected>Select</option>
+            <option value="0">0DM</option>
+            <option value="1">less-200DM</option>
+            <option value="2">no-account</option>
+            <option value="3">over-200DM</option>
+        </select>
+
+        <label for="duration">Duration:</label>
+        <input type="number" id="duration" name="duration" placeholder="Enter Duration" required>
+
+        <label for="history">History:</label>
+        <select name="history" id="history" required>
+            <option value="" disabled selected>Select</option>
+            <option value="0">all-paid-duly</option>
+            <option value="1">bank-paid-duly</option>
+            <option value="2">critical</option>
+            <option value="3">delay</option>
+            <option value="4">duly-till-now</option>
+        </select>
+
+        <label for="purpose_of_credit">Purpose of Credit:</label>
+        <select name="purpose_of_credit" id="purpose_of_credit" required>
+            <option value="" disabled selected>Select</option>
+            <option value="0">business</option>
+            <option value="1">domestic-app</option>
+            <option value="2">education</option>
+            <option value="3">furniture</option>
+            <option value="4">new-car</option>
+            <option value="5">others</option>
+            <option value="6">radio-tv</option>
+            <option value="7">repairs</option>
+            <option value="8">retraining</option>
+            <option value="9">used-car</option>
+        </select>
+
+        <label for="credit_amount">Credit Amount:</label>
+        <input type="number" id="credit_amount" name="credit_amount" placeholder="Enter Credit Amount" required>
+
+        <label for="balance">Balance in Savings Account:</label>
+        <select name="balance" id="balance" required>
+            <option value="" disabled selected>Select</option>
+            <option value="0">less100DM</option>
+            <option value="1">less500DM</option>
+            <option value="2">less1000DM</option>
+            <option value="3">over1000DM</option>
+            <option value="4">unknown</option>
+        </select>
+
+        <label for="employment">Employment:</label>
+        <select name="employment" id="employment" required>
+            <option value="" disabled selected>Select</option>
+            <option value="0">four-years</option>
+            <option value="1">one-year</option>
+            <option value="2">over-seven</option>
+            <option value="3">seven-years</option>
+            <option value="4">unemployed</option>
+        </select>
+
+        <label for="install_rate">Installment Rate:</label>
+        <input type="number" id="install_rate" name="install_rate" placeholder="Enter Installment Rate" required>
+
+        <label for="marital_status">Marital Status:</label>
+        <select name="marital_status" id="marital_status" required>
+            <option value="" disabled selected>Select</option>
+            <option value="0">female-divorced</option>
+            <option value="1">male-divorced</option>
+            <option value="2">married-male</option>
+            <option value="3">single-male</option>
+        </select>
+
+        <label for="real_estate">Real Estate:</label>
+        <select name="real_estate" id="real_estate" required>
+            <option value="" disabled selected>Select</option>
+            <option value="0">building-society</option>
+            <option value="1">car</option>
+            <option value="2">none</option>
+            <option value="3">real-estate</option>
+        </select>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" placeholder="Enter Age" required>
+
+        <label for="other_installment">Other Installment:</label>
+        <select name="other_installment" id="other_installment" required>
+            <option value="" disabled selected>Select</option>
+            <option value="0">bank</option>
+            <option value="1">none</option>
+            <option value="2">stores</option>
+        </select>
+
+        <label for="num_credits">Number of Credits:</label>
+        <input type="number" id="num_credits" name="num_credits" placeholder="Enter Number of Credits" required>
+
+        <label for="job">Job:</label>
+        <select name="job" id="job" required>
+            <option value="" disabled selected>Select</option>
+            <option value="0">management</option>
+            <option value="1">skilled</option>
+            <option value="2">unemployed-non-resident</option>
+            <option value="3">unskilled-resident</option>
+        </select>
+
+        <label for="phone">Phone:</label>
+        <div class="radio-group">
+            <input type="radio" id="phone_yes" name="phone" value="1" required>
+            <label class="radio-label" for="phone_yes">Yes</label>
+            <input type="radio" id="phone_no" name="phone" value="0">
+            <label class="radio-label" for="phone_no">No</label>
+        </div>
+
+        <label for="foreign">Foreign:</label>
+        <div class="radio-group">
+            <input type="radio" id="foreign_yes" name="foreign" value="1" required>
+            <label class="radio-label" for="foreign_yes">Yes</label>
+            <input type="radio" id="foreign_no" name="foreign" value="0">
+            <label class="radio-label" for="foreign_no">No</label>
+        </div>
+
+
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        function submitForm(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Gather form data
+            let formData = {};
+            const formElements = document.getElementById("myForm").elements;
+            for (let i = 0; i < formElements.length; i++) {
+                const element = formElements[i];
+                if (element.tagName === "SELECT" || element.tagName === "INPUT") {
+                    formData[element.name] = element.value;
+                }
+            }
+
+            // Converting form data to JSON format
+            const jsonData = JSON.stringify(formData);
+            // http://127.0.0.1:8000/predict
+            fetch('https://credit-rating-api.onrender.com/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: jsonData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Redirecting to new page with form data and API response as URL parameters
+                    const queryParams = new URLSearchParams();
+                    queryParams.append('formData', JSON.stringify(formData));
+                    queryParams.append('apiResponse', JSON.stringify(data));
+                    window.location.href = 'result.html?' + queryParams.toString();
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+
+        }
+
+    </script>
+</body>
+
+</html>
