@@ -66,12 +66,12 @@
         document.getElementById('apiResponse').textContent = apiResponse;
 
         const smileyImg = document.getElementById('smiley');
-        if (apiResponse === 'The credit card rating is bad.') {
-            smileyImg.src = 'https://raw.githubusercontent.com/RohitSingh055/Input-Form/main/sad.avif';
-            smileyImg.alt = 'Bad Smiley';
-        } else {
+        if (apiResponse === 'The credit card rating is good.') {
             smileyImg.src = 'https://raw.githubusercontent.com/RohitSingh055/Input-Form/main/smile.avif';
             smileyImg.alt = 'Good Smiley';
+        } else {
+            smileyImg.src = 'https://raw.githubusercontent.com/RohitSingh055/Input-Form/main/sad.avif';
+            smileyImg.alt = 'Bad Smiley';
         }
     </script>
 </body>
